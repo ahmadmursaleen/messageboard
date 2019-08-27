@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { WebService } from "../web.service";
+import { Messages } from "../messages";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-messages",
@@ -6,13 +9,25 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./messages.component.css"]
 })
 export class MessagesComponent implements OnInit {
-  constructor() {}
+  constructor(private WebService: WebService) {}
+  messages: Messages;
+  _subscription: Subscription;
+  ngOnInit() {
+    this._subscription = this.WebService.getMessages().subscribe(response => {
+      this.messages = response;
+    });
+  }
 
-  ngOnInit() {}
-
-  messages = [
+  /*messages = [
     { text: "text1", owner: "owner1" },
     { text: "text2", owner: "owner2" },
     { text: "text3", owner: "owner3" }
   ];
+  */
+
+  ngOnDestroy() {
+    // unsubscribing from an observable
+    // console.log('unsubscribing');
+    this._subscription.unsubscribe();
+  }
 }
