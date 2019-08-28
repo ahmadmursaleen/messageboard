@@ -15,9 +15,18 @@ const messages = [
   { text: "text_3", owner: "owner_3" }
 ];
 
-app.get("/messages", (req, res) => {
+var api = express.Router();
+
+api.get("/messages", (req, res) => {
   res.send(messages);
 });
 
+api.post("/message", (req, res) => {
+  console.log(req.body);
+  messages.push(req.body);
+  res.sendStatus(200);
+});
+
+app.use("/api", api);
 app.use(errorHandler());
 app.listen(3000);
