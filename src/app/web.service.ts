@@ -13,7 +13,7 @@ export class WebService {
 
   getMessages: Function = (): Observable<Messages> => {
     this.messages = this.httpClient.get<Messages>(
-      "http://localhost:3000/messages"
+      "http://localhost:3000/api/messages"
     );
 
     return this.messages;

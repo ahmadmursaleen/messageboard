@@ -8,7 +8,11 @@ import { HttpClientModule } from "@angular/common/http";
 
 //Material Imports
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatButtonModule, MatCardModule } from "@angular/material";
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule
+} from "@angular/material";
 
 @NgModule({
   declarations: [AppComponent, MessagesComponent],
@@ -18,7 +22,8 @@ import { MatButtonModule, MatCardModule } from "@angular/material";
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

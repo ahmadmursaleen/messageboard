@@ -25,6 +25,10 @@ export class MessagesComponent implements OnInit {
   ];
   */
 
+  postOnServer(val: string) {
+    console.log(val);
+  }
+
   ngOnDestroy() {
     // unsubscribing from an observable
     // console.log('unsubscribing');

@@ -1,13 +1,32 @@
 <p>This is the message component messages works!</p>
 
 <div *ngFor="let message of messages">
-  <mat-card style="margin: 8px;">
-    <mat-card-title>{{ message.owner }}</mat-card-title>
-
+  <mat-card class="card">
+    <mat-card-title>This is a Card Title</mat-card-title>
     <mat-card-content>
-      <p>
-        {{ message.text }}
-      </p>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            #inputField
+            placeholder="Name"
+            value="{{ message.owner }}"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Message"></textarea>
+        </mat-form-field>
+      </form>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="postOnServer(inputField.value)"
+        >
+          Send
+        </button>
+      </mat-card-actions>
     </mat-card-content></mat-card
   >
 </div>
