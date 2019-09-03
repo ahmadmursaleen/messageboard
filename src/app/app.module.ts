@@ -14,6 +14,9 @@ import {
   MatInputModule
 } from "@angular/material";
 
+//Forms module
+import { FormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [AppComponent, MessagesComponent],
   imports: [
@@ -23,7 +26,8 @@ import {
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

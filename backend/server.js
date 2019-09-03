@@ -21,10 +21,11 @@ api.get("/messages", (req, res) => {
   res.send(messages);
 });
 
-api.post("/message", (req, res) => {
-  console.log(req.body);
+api.post("/messages", (req, res) => {
+  console.log("message added");
   messages.push(req.body);
-  res.sendStatus(200);
+  //res.sendStatus(200);
+  res.send(req.body);
 });
 
 app.use("/api", api);

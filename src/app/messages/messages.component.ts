@@ -25,8 +25,13 @@ export class MessagesComponent implements OnInit {
   ];
   */
 
-  postOnServer(val: string) {
-    console.log(val);
+  postOnServer(message: Messages) {
+    //console.log(message);
+    this._subscription = this.WebService.postMessages(message).subscribe(
+      response => {
+        console.log(response);
+      }
+    );
   }
 
   ngOnDestroy() {
