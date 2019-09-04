@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import { MessagesComponent } from "./messages/messages.component";
 
 @Component({
@@ -8,4 +8,10 @@ import { MessagesComponent } from "./messages/messages.component";
 })
 export class AppComponent {
   title = "messageboard";
+
+  @ViewChild(MessagesComponent, { static: false }) messages: MessagesComponent;
+
+  onPosted(message) {
+    this.messages.ngOnInit();
+  }
 }

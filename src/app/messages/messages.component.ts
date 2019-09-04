@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { WebService } from "../web.service";
 import { Messages } from "../messages";
 import { Subscription } from "rxjs";
@@ -9,6 +9,8 @@ import { Subscription } from "rxjs";
   styleUrls: ["./messages.component.css"]
 })
 export class MessagesComponent implements OnInit {
+  @Output() onPost = new EventEmitter();
+
   constructor(private WebService: WebService) {}
   messages: Messages;
   _subscription: Subscription;
@@ -29,6 +31,7 @@ export class MessagesComponent implements OnInit {
     //console.log(message);
     this._subscription = this.WebService.postMessages(message).subscribe(
       response => {
+        this.onPost.emit(response);
         console.log(response);
       }
     );
