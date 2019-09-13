@@ -12,7 +12,7 @@ export class MessagesComponent implements OnInit {
   @Output() onPost = new EventEmitter();
 
   constructor(private WebService: WebService) {}
-  messages: Messages;
+  messages: Messages[] = [];
   _subscription: Subscription;
   ngOnInit() {
     this._subscription = this.WebService.getMessages().subscribe(response => {
@@ -31,7 +31,9 @@ export class MessagesComponent implements OnInit {
     //console.log(message);
     this._subscription = this.WebService.postMessages(message).subscribe(
       response => {
-        this.onPost.emit(response);
+        //this.onPost.emit(response);
+        this.messages.push(response);
+        console.log(this.messages);
         console.log(response);
       }
     );
