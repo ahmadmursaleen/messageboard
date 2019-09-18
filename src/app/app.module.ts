@@ -11,14 +11,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule,
+  MatToolbarModule
 } from "@angular/material";
 
 //Forms module
 import { FormsModule } from "@angular/forms";
+import { NavBarComponent } from "./nav-bar/nav-bar.component";
 
 @NgModule({
-  declarations: [AppComponent, MessagesComponent],
+  declarations: [AppComponent, MessagesComponent, NavBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +29,7 @@ import { FormsModule } from "@angular/forms";
     MatCardModule,
     HttpClientModule,
     MatInputModule,
+    MatToolbarModule,
     FormsModule
   ],
   providers: [],
