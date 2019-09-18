@@ -7,10 +7,14 @@ const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "messages"
+    redirectTo: "messages/"
   },
   {
     path: "messages",
+    component: MessagesComponent
+  },
+  {
+    path: "messages/:name",
     component: MessagesComponent
   }
 ];

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { WebService } from "../web.service";
 import { Messages } from "../messages";
 import { Subscription } from "rxjs";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-messages",
@@ -11,13 +12,15 @@ import { Subscription } from "rxjs";
 export class MessagesComponent implements OnInit {
   @Output() onPost = new EventEmitter();
 
-  constructor(private WebService: WebService) {}
+  constructor(private WebService: WebService, private route: ActivatedRoute) {}
   messages: Messages[] = [];
   _subscription: Subscription;
   ngOnInit() {
     this._subscription = this.WebService.getMessages().subscribe(response => {
       this.messages = response;
     });
+
+    console.log(this.route.snapshot.params.name);
   }
 
   /*messages = [

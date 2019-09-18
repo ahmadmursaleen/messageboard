@@ -24,7 +24,11 @@
         >
           Send
         </button>
-        <button mat-raised-button color="primary" routerLink="">
+        <button
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/messages/', message.owner]"
+        >
           RouterLink
         </button>
       </mat-card-actions>
