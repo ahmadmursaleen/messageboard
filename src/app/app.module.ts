@@ -17,11 +17,17 @@ import {
 
 //Forms module
 import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from "./register/register.component";
 
 @NgModule({
-  declarations: [AppComponent, MessagesComponent, NavBarComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    MessagesComponent,
+    NavBarComponent,
+    RegisterComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     MatInputModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
