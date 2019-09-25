@@ -18,9 +18,10 @@ import {
 //Forms module
 import { FormsModule } from "@angular/forms";
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, MessagesComponent, NavBarComponent],
+  declarations: [AppComponent, MessagesComponent, NavBarComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
